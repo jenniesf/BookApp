@@ -1,8 +1,7 @@
 package org.example.controllers;
 
-import org.example.Book;
+import org.example.GoogleBook;
 import org.example.services.GoogleBookService;
-import org.example.services.GoogleBookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +19,7 @@ public class GoogleBookController {
     private GoogleBookService googleBookService;
 
     @PostMapping("/")
-    public ArrayList<Book> searchGoogleBook(@RequestBody String userRequest) throws Exception {
+    public ArrayList<GoogleBook> searchGoogleBook(@RequestBody String userRequest) throws Exception {
         return googleBookService.searchBook(userRequest);
     }
 

@@ -21,7 +21,7 @@ public class GoogleAPIGetRequest {
     public GoogleAPIGetRequest() {
     }
 
-    public ArrayList<Book> getRequest(String requestParam) throws Exception  {
+    public ArrayList<GoogleBook> getRequest(String requestParam) throws Exception  {
 
         // validate parameters, remove " " characters from front end
 //        ArrayList<String> requestParamModified = new ArrayList<>(List.of(requestParam.split("")));
@@ -74,7 +74,7 @@ public class GoogleAPIGetRequest {
 //        System.out.println(transcript.getItems().size());  // get array size
         System.out.println(transcript);
 
-        ArrayList<Book> bookSearchArray = new ArrayList<>();
+        ArrayList<GoogleBook> bookSearchArray = new ArrayList<>();
 
         // print each element from items array. array coming back will be max of 10 elements
         for (int i = 0; i < transcript.getItems().size(); i++) {
@@ -101,7 +101,7 @@ public class GoogleAPIGetRequest {
             }
 
             // create Book with data back
-            Book book = new Book(title, authors, publishedDate, description, smallThumbnail, thumbnail);
+            GoogleBook book = new GoogleBook(title, authors, publishedDate, description, smallThumbnail, thumbnail);
 
             // push data into BooksArray
             bookSearchArray.add(book);

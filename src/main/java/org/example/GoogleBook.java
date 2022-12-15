@@ -4,7 +4,7 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class Book {
+public class GoogleBook {
     private String title;
     private ArrayList<String> authors;
     private String publishedDate;
@@ -12,7 +12,7 @@ public class Book {
     private String smallThumbnail;
     private String thumbnail;
 
-    public Book(String title, ArrayList<String> authors, String publishedDate, String description, String smallThumbnail, String thumbnail) {
+    public GoogleBook(String title, ArrayList<String> authors, String publishedDate, String description, String smallThumbnail, String thumbnail) {
         this.title = title;
         this.authors = authors;
         this.publishedDate = publishedDate;
@@ -21,7 +21,7 @@ public class Book {
         this.thumbnail = thumbnail;
     }
 
-    public Book() {
+    public GoogleBook() {
     }
 
     public String getTitle() {
