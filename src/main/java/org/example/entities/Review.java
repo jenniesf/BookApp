@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="Reviews")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Entity
+//@Table(name="Reviews")
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Review {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long review_id;
 
-    @ManyToOne                // creates the association within Hibernate
-    @JsonBackReference        // prevents infinite recursion when you deliver the resource up as JSON through the REST API endpoint you will create
-    private User user;
+//    @ManyToOne                // creates the association within Hibernate
+//    @JsonBackReference        // prevents infinite recursion when you deliver the resource up as JSON through the REST API endpoint you will create
+//    private User user;
 
 //    @ManyToMany               // creates the association within Hibernate
 //    @JsonBackReference        // prevents infinite recursion when you deliver the resource up as JSON through the REST API endpoint you will create

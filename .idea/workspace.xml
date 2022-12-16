@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Bookshelf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Review.java" afterDir="false" />
+    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="update entities">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/BookDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GoogleBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIGetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIGetRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/GoogleBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/GoogleBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Bookshelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Bookshelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +121,14 @@
       <option name="presentableId" value="Default" />
       <updated>1670268516303</updated>
     </task>
+    <task id="LOCAL-00001" summary="update entities">
+      <created>1671071828853</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671071828853</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,5 +141,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="update entities" />
   </component>
 </project>

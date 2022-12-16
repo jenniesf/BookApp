@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.dtos.BookDto;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,24 +26,53 @@ public class Book {
     private String title;
     @Column
     private String authors;                     // array or string?
-    @Column(name = "published_date")
-    private String publishedDate;
+    @Column
+    private String published;
     @Column
     private String description;
     @Column
     private String smallThumbnail;
     @Column
     private String thumbnail;
+    @Column
+    private boolean bookshelf;
     @Column(columnDefinition = "text")
     private String review;                      // user's book review
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name="Bookshelf", joinColumns={@JoinColumn(name="bookshelf_id")}, inverseJoinColumns={@JoinColumn(name="book_id")})
-    @JsonBackReference       // mitigate infinite recursion
-    private Set<Bookshelf> bookshelfSet;
+    @ManyToOne                // creates the association within Hibernate
+    @JsonBackReference        // prevents infinite recursion when you deliver the resource up as JSON through the REST API endpoint you will create
+    private User user;
 
-//    @ManyToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    public Book(BookDto bookDto) {
+        if(bookDto.getTitle() != null) {
+            this.title = bookDto.getTitle();
+        }
+        if(bookDto.getAuthors() != null) {
+            this.authors = bookDto.getAuthors();
+        }
+        if(bookDto.getPublished() != null) {
+            this.published = bookDto.getPublished();
+        }
+        if(bookDto.getDescription() != null) {
+            this.description = bookDto.getDescription();
+        }
+        if(bookDto.getSmallThumbnail() != null) {
+            this.smallThumbnail = bookDto.getSmallThumbnail();
+        }
+        if(bookDto.getThumbnail() != null) {
+            this.thumbnail = bookDto.getThumbnail();
+        }
+        if(bookDto.isBookshelf()) {
+            this.bookshelf = true;
+        }
+        if(bookDto.getReview() != null) {
+            this.review = bookDto.getReview();
+        }
+
+    }
+
+    //    @ManyToMany(mappedBy = "bookSet", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 //    @JsonBackReference       // mitigate infinite recursion
-//    private Set<Review> reviewSet = new HashSet<>();
+//    private Set<User> userSet;
 
 }
