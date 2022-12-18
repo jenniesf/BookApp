@@ -49,8 +49,6 @@ public class User {
         if(userDto.getLastname() != null) {
             this.lastname = userDto.getLastname();
         }
-
-
     }
 
     //    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
