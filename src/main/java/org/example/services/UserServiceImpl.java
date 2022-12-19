@@ -29,13 +29,13 @@ public class UserServiceImpl implements UserService {
         User user = new User(userDto);          //turn dto into User
         userRepository.saveAndFlush(user);      //user is persisted
         response.add("User added successfully");
-        return response;
+        return response;                        //return List<String>
     }
     // logging into user account
     @Override
     public List<String> userLogin(UserDto userDto){
         List<String> response = new ArrayList<>();
-        Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
+        Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());   //find in DB
         if(userOptional.isPresent()){
             if(passwordEncoder.matches(userDto.getPassword() , userOptional.get().getPassword()) ) {
                 response.add("User login successful");
