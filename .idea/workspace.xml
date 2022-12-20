@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="update book service layer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/UserController.java" afterDir="false" />
+    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="Add user controller">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIGetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIGetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +27,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,6 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -141,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671327327393</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add user controller">
+      <created>1671410531307</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671410531307</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +175,7 @@
     <MESSAGE value="update entities" />
     <MESSAGE value="update dtos" />
     <MESSAGE value="update book service layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="update book service layer" />
+    <MESSAGE value="Add user controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user controller" />
   </component>
 </project>

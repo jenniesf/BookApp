@@ -100,7 +100,7 @@ public class GoogleAPIGetRequest {
                 thumbnail = String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks().getThumbnail());
             }
 
-            // create Book with data back
+            // create GoogleBook with data back
             GoogleBook book = new GoogleBook(title, authors, publishedDate, description, smallThumbnail, thumbnail);
 
             // push data into BooksArray

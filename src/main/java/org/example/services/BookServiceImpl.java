@@ -22,23 +22,24 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    // add a book by user id
+    // ADD (POST) a book by user id
     @Override
     @Transactional
     public void addBook(BookDto bookDto, Long userId){
         Optional<User> userOptional = userRepository.findById(userId);
+        // System.out.println("Printing user optional: " + userOptional);
         Book book = new Book(bookDto);
         userOptional.ifPresent(book::setUser);
         bookRepository.saveAndFlush(book);
     }
-    // delete a book by book id
+    // DELETE a book by book id
     @Override
     @Transactional
     public void deleteBookById(Long bookId){
         Optional<Book> bookOptional = bookRepository.findById(bookId);
         bookOptional.ifPresent(book -> bookRepository.delete(book));
     }
-    // update a book (review) by book id
+    // UPDATE (PUT) a book (review) by book id
     @Override
     @Transactional
     public void updateBookById(BookDto bookDto){
@@ -48,7 +49,7 @@ public class BookServiceImpl implements BookService {
             bookRepository.saveAndFlush(book);
         });
     }
-    // find all books by user id
+    // GET all books by user id
     @Override
     public List<BookDto> getAllBooksByUserId(Long userId){
         Optional<User> userOptional = userRepository.findById(userId);
@@ -58,7 +59,7 @@ public class BookServiceImpl implements BookService {
         }
         return Collections.emptyList();
     }
-    // find book by book id
+    // GET book by book id
     @Override
     public Optional<BookDto> getBookById(Long bookId){
         Optional<Book> bookOptional = bookRepository.findById(bookId);
