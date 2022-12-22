@@ -28,11 +28,11 @@ public class Book {
     private String authors;                     // array or string?
     @Column
     private String published;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String smallThumbnail;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String thumbnail;
     @Column
     private boolean bookshelf;
