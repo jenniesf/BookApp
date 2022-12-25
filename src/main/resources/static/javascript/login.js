@@ -35,11 +35,12 @@ const handleSubmit = async (e) => {
     })
         .catch(err => console.error(err.message))
 
-    const responseArr = await response.json()
+    const responseArr = await response.json()  // response from backend service layer
 
     if (response.status === 200 ) {
         // create a JavaScript cookie to be able to store the user’s Id for subsequent requests once they’re logged in
         document.cookie = `userId=${responseArr[1]}`
+        document.cookie = `userFirstname=${responseArr[2]}`
         window.location.replace(responseArr[0])
     }
 }

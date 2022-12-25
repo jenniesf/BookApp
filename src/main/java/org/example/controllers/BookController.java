@@ -39,6 +39,18 @@ public class BookController {
         return bookService.getAllBooksByUserId(userId);
     }
 
+    // GET bookshelf if true by user id
+    @GetMapping("/bookshelf/user/{userId}")
+    public List<BookDto> getBookshelfByUser(@PathVariable Long userId){
+        return bookService.getBooksByUserAndBookshelf(userId, true);
+    }
+
+    // GET review if bookshelf is false by user id
+    @GetMapping("/review/user/{userId}")
+    public List<BookDto> getReviewByUser(@PathVariable Long userId){
+        return bookService.getBooksByUserAndBookshelf(userId, false);
+    }
+
     // GET book by book id
     @GetMapping("/{bookId}")
     public Optional<BookDto> getBookById(@PathVariable Long bookId){

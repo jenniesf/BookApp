@@ -1,88 +1,136 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/home.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/home.css" type="text/css">
 
-    <title>ReadIt</title>
-</head>
-<body>
+        <title>ReadIt</title>
+    </head>
 
-    <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+    <body>
 
-    <div>Welcome FIRST NAME</div>
+        <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
 
+        <div>Welcome <span id="userName"></span></div>
 
-    <!--    TEST BOOK FORM-->
-    <div class="container" id="home-container">
-        <div class="book-form-container">
+        <br>
+        <br>
 
-            <form action="" id="book-form">
-                <div class="form-group">
-                    <input class="form-control" type="text" id="title-input" placeholder="Title">
-                    <input class="form-control" type="text" id="author-input" placeholder="Author">
-                    <input class="form-control" type="text" id="published-input" placeholder="Published date">
-                    <input class="form-control" type="text" id="description-input" placeholder="description">
-                    <input class="form-control" type="text" id="smallThumbnail-input" placeholder="smallThumbnail">
-                    <input class="form-control" type="text" id="thumbnail-input" placeholder="thumbnail">
-                    <input class="form-control" type="text" id="bookshelf-input" placeholder="bookshelf boolean">
-                    <input class="form-control" type="text" id="review-input" placeholder="review">
-<!--                    <textarea class="form-control" name="" id="book-input" cols="30" rows="5" placeholder="Add your book..."></textarea>-->
-                </div>
-                <button id="submit-book-button" type="submit" class="btn btn-primary mt-1">Submit</button>
-            </form>
+        <!-- TEST BOOK FORM -->
+<!--        <div class="container" id="home-container">-->
+<!--            <div class="book-form-container">-->
 
-            <!-- BOOKS ON SCREEN-->
-            <div id="book-container" class="container-fluid"></div>
-        </div>
-    </div>
+<!--                <form action="" id="book-form">-->
+<!--                    <div class="form-group">-->
+<!--                        <input class="form-control" type="text" id="title-input" placeholder="Title">-->
+<!--                        <input class="form-control" type="text" id="author-input" placeholder="Author">-->
+<!--                        <input class="form-control" type="text" id="published-input" placeholder="Published date">-->
+<!--                        <input class="form-control" type="text" id="description-input" placeholder="description">-->
+<!--                        <input class="form-control" type="text" id="smallThumbnail-input" placeholder="smallThumbnail">-->
+<!--                        <input class="form-control" type="text" id="thumbnail-input" placeholder="thumbnail">-->
+<!--                        <input class="form-control" type="text" id="bookshelf-input" placeholder="bookshelf boolean">-->
+<!--                        <input class="form-control" type="text" id="review-input" placeholder="review">-->
+<!--                        <textarea class="form-control" name="" id="book-input" cols="30" rows="5" placeholder="Add your book..."></textarea>-->
+<!--                    </div>-->
+<!--                    <button id="submit-book-button" type="submit" class="btn btn-primary mt-1">Submit</button>-->
+<!--                </form>-->
 
-
-    <!--    GOOGLE SEARCH FORM-->
-    <form action="" id="google-form">
-        <div class="form-group">
-            <input type="text" id="search-input" placeholder="Search book">
-        </div>
-        <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>
-    </form>
-
-
-    <!--  GOOGLE BOOKS ON SCREEN-->
-    <div id="note-container" class="container=fluid"></div>
-
-
-<!-- Modal -->
-<!--<div class="modal fade" id="note-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="note-edit-modal-title" aria-hidden="true">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-
-<!--            <div class="modal-header">-->
-<!--                <h5 class="modal-title" id="note-edit-modal-title">Edit your note</h5>-->
-<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                &lt;!&ndash; SHOW BOOKS ON SCREEN&ndash;&gt;-->
+<!--                <div id="book-container" class="container-fluid"></div>-->
 <!--            </div>-->
-
-<!--            <div class="modal-body d-flex">-->
-<!--                <textarea class="form-control" rows="5" id="note-body"></textarea>-->
-<!--            </div>-->
-
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--                <button type="button" id="update-note-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>-->
-<!--            </div>-->
-
 <!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<script src="./javascript/home.js" type="application/javascript"></script>
+        <!--   SHOW USER'S BOOKSHELF -->
+        <h3>Reading List</h3>
+        <div id="bookshelf-container" class="container=fluid"></div>
 
-</body>
+        <br>
+
+        <!--   SHOW USER'S REVIEWS -->
+        <h3>Book Reviews</h3>
+        <div id="review-container" class="card-group"></div>
+
+        <br>
+        <br>
+
+        <!--    GOOGLE SEARCH FORM-->
+        <form action="" id="google-form">
+            <div class="form-group">
+                <input type="text" id="search-input" placeholder="Search book">
+            </div>
+            <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>
+        </form>
+
+        <!--  SHOW GOOGLE BOOKS ON SCREEN-->
+        <div id="note-container" class="container=fluid"></div>
+
+
+
+
+
+
+        <!-- Modal - ADD NEW/INITIAL REVIEW TO DATABASE -->
+        <form id="add-review-modal-form">
+            <div class="modal fade" id="add-review-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="add-review-modal-title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="add-review-modal-title">Write review</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body d-flex">
+                            <textarea class="form-control" rows="5" id="review-body"></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" id="close-review-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="add-review-button" class="btn btn-primary hideShowButton" data-bs-dismiss="modal">Save google Add</button>
+                            <button type="button" id="put-bookshelf-review-button" class="btn btn-primary hideShowButton" data-bs-dismiss="modal">Save bookshelf PUT</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Modal - ADD REVIEW TO BOOK ALREADY IN BOOKSHELF DATABASE -->
+<!--        <form id="add-bookshelf-review-modal-form">-->
+<!--            <div class="modal fade" id="add-bookshelf-review-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="add-bookshelf-review-modal-title" aria-hidden="true">-->
+<!--                <div class="modal-dialog">-->
+<!--                    <div class="modal-content">-->
+
+<!--                        <div class="modal-header">-->
+<!--                            <h5 class="modal-title" id="add-bookshelf-review-modal-title">Write review</h5>-->
+<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                        </div>-->
+
+<!--                        <div class="modal-body d-flex">-->
+<!--                            <textarea class="form-control" rows="5" id="bookshelf-review-body"></textarea>-->
+<!--                        </div>-->
+
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" id="close-bookshelf-review-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                            <button type="button" id="add-bookshelf-review-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+        <script src="./javascript/home.js" type="application/javascript"></script>
+
+    </body>
 </html>

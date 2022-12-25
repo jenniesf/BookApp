@@ -22,6 +22,9 @@ public interface BookService {
     // find all books by user id
     List<BookDto> getAllBooksByUserId(Long userId);
 
+    // find all books by user id AND bookshelf is true OR reviews if bookshelf is false
+    List<BookDto> getBooksByUserAndBookshelf(Long userId, boolean booleanPassed);
+
     // find book by book id
     Optional<BookDto> getBookById(Long bookId);
 }

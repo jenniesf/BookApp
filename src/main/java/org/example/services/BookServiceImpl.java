@@ -46,6 +46,7 @@ public class BookServiceImpl implements BookService {
         Optional<Book> bookOptional = bookRepository.findById(bookDto.getBook_id());
         bookOptional.ifPresent( book -> {
             book.setReview(bookDto.getReview());
+            book.setBookshelf(bookDto.isBookshelf());
             bookRepository.saveAndFlush(book);
         });
     }
@@ -59,6 +60,18 @@ public class BookServiceImpl implements BookService {
         }
         return Collections.emptyList();
     }
+
+    // GET all books by user id AND bookshelf if bookshelf is TRUE or reviews if bookshelf FALSE
+    @Override
+    public List<BookDto> getBooksByUserAndBookshelf(Long userId, boolean booleanPassed){
+        Optional<User> userOptional = userRepository.findById(userId);
+        if(userOptional.isPresent()){
+            List<Book> bookList = bookRepository.findByUserAndBookshelf(userOptional.get(),booleanPassed);
+            return bookList.stream().map(book -> new BookDto(book)).collect(Collectors.toList());
+        }
+        return Collections.emptyList();
+    }
+
     // GET book by book id
     @Override
     public Optional<BookDto> getBookById(Long bookId){
