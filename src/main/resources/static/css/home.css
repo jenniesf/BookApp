@@ -1,4 +1,9 @@
 .card-img-top {
-    width: 20%;
+    width: 30%;
 }
 
+/* Styles for wrapping the search box */
+.searchBar {
+    width: 50%;
+    margin: 50px auto;
+}
