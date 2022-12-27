@@ -292,7 +292,7 @@ const createNoteCards = (array) => {
                             ${descriptionArr[1]}
                         </span>
                         <span>
-                            <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a class="text-decoration-none" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 ...
                             </a>
                         </span>
@@ -363,7 +363,6 @@ const createBookshelfCards = (array) => {
 
                 <div class="card-body">
                     <h5 class="card-title text-center">${obj.title}</h5>
-                    <p class="card-text text-center">${obj.published}</p>
                     <p class="card-text">More information</p>
                 </div>
 

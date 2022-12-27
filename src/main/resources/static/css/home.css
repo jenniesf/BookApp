@@ -2,8 +2,14 @@
     width: 30%;
 }
 
-/* Styles for wrapping the search box */
+/* Styles for wrapping the search box
 .searchBar {
     width: 50%;
     margin: 50px auto;
+}
+*/
+
+.navbar{
+left:100px;
+right:100px;
 }
