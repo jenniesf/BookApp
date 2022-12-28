@@ -114,42 +114,6 @@ async function handleReviewModal(bookArrData){
 }
 
 
-// ******* ADD/POST BOOK TO DATABASE -- USING FORM
-const handleBookSubmit = async (e) => {
-    e.preventDefault() //prevent default behavior of the form
-    let bodyObj = {
-        title: document.getElementById("title-input").value,
-        authors: document.getElementById("author-input").value,
-        published: document.getElementById("published-input").value,
-        description: document.getElementById("description-input").value,
-        smallThumbnail: document.getElementById("smallThumbnail-input").value,
-        thumbnail: document.getElementById("thumbnail-input").value,
-        bookshelf: document.getElementById("bookshelf-input").value,
-        review: document.getElementById("review-input").value
-    }
-    await addBook(bodyObj);  // run addBook function below
-    // value to empty
-    document.getElementById("title-input").value = ''
-    document.getElementById("author-input").value = ''
-    document.getElementById("published-input").value = ''
-    document.getElementById("description-input").value = ''
-    document.getElementById("smallThumbnail-input").value = ''
-    document.getElementById("thumbnail-input").value = ''
-    document.getElementById("bookshelf-input").value = ''
-    document.getElementById("review-input").value = ''
-}
-async function addBook(obj) {
-    const response = await fetch(`${bookUrl}user/${userId}`, {
-        method: "POST",
-        body: JSON.stringify(obj),
-        headers: headers
-    })
-        .catch(err => console.error(err.message))
-    if (response.status == 200) {
-          console.log("added to database")
-    }
-}
-// **********
 
 
 
@@ -213,8 +177,6 @@ async function handleReviewPut(bodyObj){   // runs onClick
 }
 
 
-
-
 // DELETE BOOK FROM BOOKSHELF OR REVIEW WITH BOOK ID
 async function handleBookDelete(bookId){
     await fetch(bookUrl + bookId, {
@@ -226,9 +188,6 @@ async function handleBookDelete(bookId){
     await getReviews(userId);
     return getBookshelf(userId);
 }
-
-
-
 
 
 async function handleReviewAdd(bodyObj){   // runs onClick
@@ -365,6 +324,16 @@ const populateAddReviewModal = (obj) =>{
 
 // CARDS TO SHOW USER'S BOOKSHELF BOOKS
 const createBookshelfCards = (array) => {
+
+    // if bookshelf array is empty
+    if(array.length == 0){
+        document.getElementById("bookshelfResultEmptyText").style.display = "block";
+        document.getElementById("bookshelfResultEmptyText").innerText = `Bookshelf is empty`
+    } else {
+        document.getElementById("bookshelfResultEmptyText").innerText = ``
+        document.getElementById("bookshelfResultEmptyText").style.display = "none";
+    }
+
     bookshelfContainer.innerHTML = ''
     array.forEach( obj => {
         let bookshelfCard = document.createElement("div")
@@ -401,6 +370,16 @@ const createBookshelfCards = (array) => {
 
 // CARDS TO SHOW USER'S REVIEWS
 const createReviewCards = (array) => {
+
+    // if reviews array is empty
+    if(array.length == 0){
+        document.getElementById("reviewResultEmptyText").style.display = "block";
+        document.getElementById("reviewResultEmptyText").innerText = `No reviews found`
+    } else {
+        document.getElementById("reviewResultEmptyText").innerText = ``
+        document.getElementById("reviewResultEmptyText").style.display = "none";
+    }
+
     reviewContainer.innerHTML = ''      // outer div
 
     array.forEach( obj => {
@@ -445,12 +424,9 @@ const createReviewCards = (array) => {
 getBookshelf(userId)
 getReviews(userId)
 
-
-
 // *** EVENT LISTENERS ***
 submitForm.addEventListener("submit", handleBookSearchSubmit)
 // submitBookForm.addEventListener("submit", handleBookSubmit)
-
 
 // *** MODAL EVENT LISTENERS ***
 // POST initial book review button
@@ -500,3 +476,39 @@ closeReviewBtn.addEventListener("click", (e)=>{
 
 
 
+// ******* ADD/POST BOOK TO DATABASE -- USING FORM
+//const handleBookSubmit = async (e) => {
+//    e.preventDefault() //prevent default behavior of the form
+//    let bodyObj = {
+//        title: document.getElementById("title-input").value,
+//        authors: document.getElementById("author-input").value,
+//        published: document.getElementById("published-input").value,
+//        description: document.getElementById("description-input").value,
+//        smallThumbnail: document.getElementById("smallThumbnail-input").value,
+//        thumbnail: document.getElementById("thumbnail-input").value,
+//        bookshelf: document.getElementById("bookshelf-input").value,
+//        review: document.getElementById("review-input").value
+//    }
+//    await addBook(bodyObj);  // run addBook function below
+//    // value to empty
+//    document.getElementById("title-input").value = ''
+//    document.getElementById("author-input").value = ''
+//    document.getElementById("published-input").value = ''
+//    document.getElementById("description-input").value = ''
+//    document.getElementById("smallThumbnail-input").value = ''
+//    document.getElementById("thumbnail-input").value = ''
+//    document.getElementById("bookshelf-input").value = ''
+//    document.getElementById("review-input").value = ''
+//}
+//async function addBook(obj) {
+//    const response = await fetch(`${bookUrl}user/${userId}`, {
+//        method: "POST",
+//        body: JSON.stringify(obj),
+//        headers: headers
+//    })
+//        .catch(err => console.error(err.message))
+//    if (response.status == 200) {
+//          console.log("added to database")
+//    }
+//}
+// **********
