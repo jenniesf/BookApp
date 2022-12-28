@@ -1,4 +1,4 @@
-package org.example;
+package org.example.thirdpartyapi;
 
 // Google API - Items object details
 

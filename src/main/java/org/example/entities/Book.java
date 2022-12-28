@@ -25,19 +25,21 @@ public class Book {
     @Column
     private String title;
     @Column
-    private String authors;                     // array or string?
+    private String authors;
     @Column
     private String published;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String description;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String smallThumbnail;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String thumbnail;
     @Column
     private boolean bookshelf;
     @Column(columnDefinition = "text")
     private String review;                      // user's book review
+    @Column(columnDefinition = "text")
+    private String infoLink;
 
     @ManyToOne                // creates the association within Hibernate
     @JsonBackReference        // prevents infinite recursion when you deliver the resource up as JSON through the REST API endpoint you will create
@@ -68,11 +70,13 @@ public class Book {
         if(bookDto.getReview() != null) {
             this.review = bookDto.getReview();
         }
-
+        if(bookDto.getInfoLink() != null) {
+            this.infoLink = bookDto.getInfoLink();
+        }
     }
 
     //    @ManyToMany(mappedBy = "bookSet", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-//    @JsonBackReference       // mitigate infinite recursion
-//    private Set<User> userSet;
+    //    @JsonBackReference       // mitigate infinite recursion
+    //    private Set<User> userSet;
 
 }

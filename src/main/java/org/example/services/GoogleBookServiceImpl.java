@@ -1,7 +1,7 @@
 package org.example.services;
 
-import org.example.GoogleBook;
-import org.example.GoogleAPIGetRequest;
+import org.example.thirdpartyapi.GoogleBook;
+import org.example.thirdpartyapi.GoogleAPIGetRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

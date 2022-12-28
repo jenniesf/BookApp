@@ -6,10 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="update pages and front end styling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ApiTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/ApiTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ApiTestingGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/ApiTestingGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIGetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIGetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleAPIResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleImageLinksDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleImageLinksDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleItemsDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleItemsDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GoogleVolumeInfoDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleVolumeInfoDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/GoogleBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/GoogleBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/BookDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/BookDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Bookshelf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/GoogleBookServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +80,11 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="ApiTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.ApiTesting" />
+      <option name="MAIN_CLASS_NAME" value="org.example.thirdpartyapi.ApiTesting" />
       <module name="RESTAPItesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.thirdpartyapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,11 +93,11 @@
       </method>
     </configuration>
     <configuration name="GoogleAPIGetRequest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.GoogleAPIGetRequest" />
+      <option name="MAIN_CLASS_NAME" value="org.example.thirdpartyapi.GoogleAPIGetRequest" />
       <module name="RESTAPItesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.thirdpartyapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,7 +110,7 @@
       <module name="RESTAPItesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.thirdpartyapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -179,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672098863668</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update pages and front end styling.">
+      <created>1672184401776</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672184401777</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

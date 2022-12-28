@@ -22,6 +22,7 @@ public class BookDto implements Serializable {
     private String thumbnail;
     private boolean bookshelf;
     private String review;
+    private String infoLink;
     private UserDto userDto;
 
     public BookDto(Book book) {
@@ -51,6 +52,9 @@ public class BookDto implements Serializable {
         }
         if(book.getReview() != null){
             this.review = book.getReview();
+        }
+        if(book.getInfoLink() != null){
+            this.infoLink = book.getInfoLink();
         }
     }
 }

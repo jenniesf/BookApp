@@ -44,16 +44,16 @@ function handleLogout(){
 //   2. ADD USER FIRST NAME TO HOME PAGE
 document.getElementById("userName").innerText = userFirstname
 
-//   3. HANDLE BOOK SEARCH - GOOGLE API
+//   3. HANDLE GOOGLE BOOK SEARCH (GOOGLE API)
 const handleBookSearchSubmit = async (e) => {
     e.preventDefault() //prevent default behavior of the form
-    let bodyObj = document.getElementById('search-input').value  // store search-input value
-    console.log(bodyObj); // log user request string
-    await bookSearch(bodyObj);  // run book search function below
-    document.getElementById("search-input").value = ''  // update search-input value to empty
+    let userBookInputString = document.getElementById('search-input').value  // store search-input value
+    console.log(userBookInputString); // log user request string
+    await bookSearch(userBookInputString);  // run book search function below
+    document.getElementById("search-input").value = ''  // reset search-input value to empty
 }
 async function bookSearch(obj) {
-    const response = await fetch(`${baseUrl}`, {
+    const response = await fetch(`${baseUrl}`, {  // google search api endpoint
         method: "POST",
         body: JSON.stringify(obj),
         headers: headers
@@ -63,10 +63,55 @@ async function bookSearch(obj) {
     const result = await response.json()
     console.log(result);    // result is an array of 10 items
     if (response.status == 200) {
+        // show 'search result' text
+        document.getElementById("searchResultText").style.display = "block";
+        document.getElementById("searchResultText").innerText = `Search results for "${obj}"`
         return createNoteCards(result);
     }
 }
 
+// 4. ADD GOOGLE SEARCHED BOOK TO BOOKSHELF DATABASE
+async function handleAddToBookshelf(bookArrData){
+    let bodyObj = {
+        "title": bookArrData[0],
+        "published": bookArrData[1],
+        "description": bookArrData[2],
+        "smallThumbnail": bookArrData[3],
+        "thumbnail": bookArrData[4],
+        "authors": bookArrData[5],
+        "infoLink": bookArrData[6],
+        "bookshelf": true
+    }
+    const response = await fetch(`${bookUrl}user/${userId}`, {
+        method: "POST",
+        body: JSON.stringify(bodyObj),
+        headers: headers
+    })
+        .catch(err => console.error(err.message))
+    if (response.status == 200) {
+          console.log("book added to database")
+          return getBookshelf(userId);      // run getBookshelf
+    }
+}
+
+// 5. ADD GOOGLE BOOK (INITIAL) REVIEW TO DATABASE
+async function handleReviewModal(bookArrData){
+    // show modal; add initial book review button;
+        // hide edit review/add to existing bookshelf book button
+    putBookshelfReviewBtn.style.display = "none"
+    addReviewBtn.style.display = "block"
+
+    let bodyObj = {
+        "title": bookArrData[0],
+        "published": bookArrData[1],
+        "description": bookArrData[2],
+        "smallThumbnail": bookArrData[3],
+        "thumbnail": bookArrData[4],
+        "authors": bookArrData[5],
+        "infoLink": bookArrData[6]
+    }
+    populateAddReviewModal(bodyObj)    // run Modal function in helper
+}
 
 
 // ******* ADD/POST BOOK TO DATABASE -- USING FORM
@@ -155,7 +200,6 @@ async function getBookById(bookId){
 }
 
 async function handleReviewPut(bodyObj){   // runs onClick
-
     await fetch(bookUrl, {
         method: "PUT",
         body: JSON.stringify(bodyObj),
@@ -183,45 +227,9 @@ async function handleBookDelete(bookId){
     return getBookshelf(userId);
 }
 
-// ADD GOOGLE BOOK TO BOOKSHELF DATABASE
-async function handleAddToBookshelf(bookArrData){
-    let bodyObj = {
-        "title": bookArrData[0],
-        "published": bookArrData[1],
-        "description": bookArrData[2],
-        "smallThumbnail": bookArrData[3],
-        "thumbnail": bookArrData[4],
-        "bookshelf": true
-    }
-    const response = await fetch(`${bookUrl}user/${userId}`, {
-        method: "POST",
-        body: JSON.stringify(bodyObj),
-        headers: headers
-    })
-        .catch(err => console.error(err.message))
-    if (response.status == 200) {
-          console.log("book added to database")
-          return getBookshelf(userId);      // run getBookshelf
-    }
-}
 
 
-// ADD GOOGLE BOOK (INITIAL) REVIEW TO DATABASE
-async function handleReviewModal(bookArrData){
-    // show modal add initial book review button;
-    // hide edit review/add to existing bookshelf book button
-    putBookshelfReviewBtn.style.display = "none"
-    addReviewBtn.style.display = "block"
 
-    let bodyObj = {
-        "title": bookArrData[0],
-        "published": bookArrData[1],
-        "description": bookArrData[2],
-        "smallThumbnail": bookArrData[3],
-        "thumbnail": bookArrData[4]
-    }
-    populateAddReviewModal(bodyObj)    // run Modal function in helper
-}
 
 async function handleReviewAdd(bodyObj){   // runs onClick
     // save Review to database
@@ -265,6 +273,8 @@ const createNoteCards = (array) => {
         let description = String(obj.description)
         let smallImage = String(obj.smallThumbnail)
         let bigImage = String(obj.thumbnail)
+        let authors = obj.authors.join(", ")   // join authors array into string to store in DB
+        let infoLink = String(obj.infoLink)
 
         title = escapeQuotesFromGoogleAPI(title)   // clean data, escape quotes
         description = escapeQuotesFromGoogleAPI(description)  // clean data
@@ -278,12 +288,15 @@ const createNoteCards = (array) => {
         noteCard.innerHTML = `
             <div class="card h-100">
 
-                <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block" alt="book cover">
+                <a class="text-decoration-none" href="${infoLink}">
+                    <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
+                </a>
 
                 <div class="card-body">
 
                     <h5 class="card-title text-center">${obj.title}</h5>
-                    <p class="card-text text-center">${obj.publishedDate}</p>
+                    <p class="card-text text-center">${authors + " " + obj.publishedDate}</p>
+
                     <p class="card-text">
                         <span>
                             ${descriptionArr[0]}
@@ -301,11 +314,11 @@ const createNoteCards = (array) => {
                 </div>
 
                 <div class="card-footer text-center">
-                    <button class="btn btn-outline-secondary btn-sm" onclick="handleAddToBookshelf(['${title}','${date}','${description}','${smallImage}','${bigImage}'])">
+                    <button class="btn btn-outline-secondary btn-sm" onclick="handleAddToBookshelf(['${title}','${date}','${description}','${smallImage}','${bigImage}','${authors}','${infoLink}'])">
                         Add to bookshelf
                     </button>
 
-                    <button class="btn btn-secondary btn-sm" onclick="handleReviewModal(['${title}','${date}','${description}','${smallImage}','${bigImage}'])"
+                    <button class="btn btn-secondary btn-sm" onclick="handleReviewModal(['${title}','${date}','${description}','${smallImage}','${bigImage}','${authors}','${infoLink}'])"
                     type="button" data-bs-toggle="modal" data-bs-target="#add-review-modal">
                         Add review
                     </button>
@@ -321,18 +334,18 @@ const createNoteCards = (array) => {
  // “populateModal” method which accepts an object as an argument and uses that object to populate the fields
      // within the modal as well as assign a custom “data-” tag to the “Save” button element
 const populateAddReviewModal = (obj) =>{
-
     reviewBody.innerText = ''
 
     // check if obj has book_id (aka already in DB to edit vs new book object, and set attributes)
     if (obj.book_id != null) {
-
         putBookshelfReviewBtn.setAttribute('data-review-id', obj.book_id)
         putBookshelfReviewBtn.setAttribute('data-review-title', obj.title)
         putBookshelfReviewBtn.setAttribute('data-review-published', obj.published)
         putBookshelfReviewBtn.setAttribute('data-review-description', obj.description)
         putBookshelfReviewBtn.setAttribute('data-review-smallThumbnail', obj.smallThumbnail)
         putBookshelfReviewBtn.setAttribute('data-review-thumbnail', obj.thumbnail)
+        putBookshelfReviewBtn.setAttribute('data-review-authors', obj.authors)
+        putBookshelfReviewBtn.setAttribute('data-review-infoLink', obj.infoLink)
 
         if(obj.review != null) {
             reviewBody.innerText = obj.review
@@ -344,6 +357,8 @@ const populateAddReviewModal = (obj) =>{
         addReviewBtn.setAttribute('data-review-description', obj.description)
         addReviewBtn.setAttribute('data-review-smallThumbnail', obj.smallThumbnail)
         addReviewBtn.setAttribute('data-review-thumbnail', obj.thumbnail)
+        addReviewBtn.setAttribute('data-review-authors', obj.authors)
+        addReviewBtn.setAttribute('data-review-infoLink', obj.infoLink)
     }
 }
 
@@ -359,11 +374,12 @@ const createBookshelfCards = (array) => {
         bookshelfCard.innerHTML = `
             <div class="card h-100">
 
-                <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block" alt="book cover">
+                <a class="text-decoration-none" href="${obj.infoLink}">
+                    <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
+                </a>
 
                 <div class="card-body">
                     <h5 class="card-title text-center">${obj.title}</h5>
-                    <p class="card-text">More information</p>
                 </div>
 
                 <div class="card-footer text-center">
@@ -395,7 +411,9 @@ const createReviewCards = (array) => {
         reviewCard.innerHTML = `
             <div class="card h-100">
 
-                <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block" alt="book cover">
+                <a class="text-decoration-none" href="${obj.infoLink}">
+                    <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
+                </a>
 
                 <div class="card-body">
                     <h5 class="card-title">${obj.title}</h5>
@@ -443,8 +461,10 @@ addReviewBtn.addEventListener("click", (e)=>{
         "description": e.target.getAttribute('data-review-description'),
         "smallThumbnail": e.target.getAttribute('data-review-smallThumbnail'),
         "thumbnail": e.target.getAttribute('data-review-thumbnail'),
+        "authors": e.target.getAttribute('data-review-authors'),
         "bookshelf": false,
-        "review": reviewBody.value
+        "review": reviewBody.value,
+        "infoLink": e.target.getAttribute('data-review-infoLink')
     }
     handleReviewAdd(reviewObj);
 })
@@ -457,19 +477,16 @@ putBookshelfReviewBtn.addEventListener("click", (e)=>{
         "description": e.target.getAttribute('data-review-description'),
         "smallThumbnail": e.target.getAttribute('data-review-smallThumbnail'),
         "thumbnail": e.target.getAttribute('data-review-thumbnail'),
+        "authors": e.target.getAttribute('data-review-authors'),
         "bookshelf": false,
-        "review": reviewBody.value
+        "review": reviewBody.value,
+        "infoLink": e.target.getAttribute('data-review-infoLink')
     }
     handleReviewPut(reviewObj);
 })
 
 
-
-
-
-
-
-// close initial book review button
+// 'Close' book review modal button
 closeReviewBtn.addEventListener("click", (e)=>{
    document.getElementById("add-review-modal-form").reset(); // clear modal text
 })
@@ -483,37 +500,3 @@ closeReviewBtn.addEventListener("click", (e)=>{
 
 
 
-        // review CARDS BEFORE BOOTSTRAP EDITS
-//const createReviewCards = (array) => {
-//    reviewContainer.innerHTML = ''
-//
-//    array.forEach( obj => {
-//        let reviewCard = document.createElement("div")
-//
-//        reviewCard.classList.add("m-2")
-//
-//        reviewCard.innerHTML = `
-//            <div class="card d-flex" style="width: 18rem; height: 18rem;">
-//                <div class="" style="height: available">
-//
-//                    <img src="${obj.smallThumbnail}">
-//                    <p class="card-text">${obj.title}</p>
-//                    <p class="card-text">${obj.review}</p>
-//
-//                    <div class="">
-//
-//                        <button class="btn btn-danger" onclick="handleBookDelete(${obj.book_id})">Delete</button>
-//
-//                        <button onclick="getReviewById(${obj.id})" type="button" class="btn btn-primary"
-//                        data-bs-toggle="modal" data-bs-target="#note-edit-modal">
-//                            Edit review
-//                        </button>
-//
-//                    </div>
-//
-//                </div>
-//            </div>
-//        `
-//        reviewContainer.append(reviewCard);
-//    })
-//}

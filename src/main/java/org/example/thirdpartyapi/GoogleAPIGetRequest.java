@@ -1,6 +1,7 @@
-package org.example;
+package org.example.thirdpartyapi;
 
 import com.google.gson.Gson;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -10,7 +11,6 @@ import java.util.List;
 
 
 // GET request to Google book API
-
 public class GoogleAPIGetRequest {
 
 //    public static void main(String[] args) throws Exception {
@@ -18,8 +18,7 @@ public class GoogleAPIGetRequest {
 //        getRequest(searchParam);
 //    }
 
-    public GoogleAPIGetRequest() {
-    }
+    public GoogleAPIGetRequest() {}
 
     public ArrayList<GoogleBook> getRequest(String requestParam) throws Exception  {
 
@@ -85,10 +84,12 @@ public class GoogleAPIGetRequest {
             ArrayList<String> authors = transcript.getItems().get(i).getVolumeInfo().getAuthors();
             String publishedDate = transcript.getItems().get(i).getVolumeInfo().getPublishedDate();
             String description = transcript.getItems().get(i).getVolumeInfo().getDescription();
+            String infoLink = transcript.getItems().get(i).getVolumeInfo().getInfoLink();
 
 //            String smallThumbnail = String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks().getSmallThumbnail());
 //            String thumbnail = String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks().getThumbnail());
 
+            // book cover images/thumbnails
             String smallThumbnail = null;
             String thumbnail = null;
 
@@ -101,7 +102,7 @@ public class GoogleAPIGetRequest {
             }
 
             // create GoogleBook with data back
-            GoogleBook book = new GoogleBook(title, authors, publishedDate, description, smallThumbnail, thumbnail);
+            GoogleBook book = new GoogleBook(title, authors, publishedDate, description, smallThumbnail, thumbnail, infoLink);
 
             // push data into BooksArray
             bookSearchArray.add(book);
@@ -117,8 +118,9 @@ public class GoogleAPIGetRequest {
         return bookSearchArray;
     }
 
+    // HELPER FUNCTIONS
     public String validateParam(String requestParam) {
-        // validate parameters, remove " " characters from frontend
+        // validate parameters, remove " " characters from frontend if exist
         ArrayList<String> requestParamModified = new ArrayList<>(List.of(requestParam.split("")));
         if(requestParamModified.get(0).equals("\"") && requestParamModified.get(requestParamModified.size()-1).equals("\"")) {
             requestParamModified.remove(0);
@@ -130,7 +132,7 @@ public class GoogleAPIGetRequest {
         return requestParam;
     }
     public String refactorParam(String requestParam) {
-        // refactor requestParam data coming in; replace spaces with +
+        // refactor requestParam data coming in client user; replace 'spaces' with '+'
         ArrayList<String> requestFromUser = new ArrayList<>(List.of(requestParam.split(" ")));
         System.out.println("user requested string: " + requestFromUser);
         String requestFromUserString = (String.join("+" , requestFromUser));

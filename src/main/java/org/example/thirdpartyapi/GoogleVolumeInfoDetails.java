@@ -1,27 +1,20 @@
-package org.example;
+package org.example.thirdpartyapi;
 
-// book object to hold book from Google search to put into database
+import org.example.thirdpartyapi.GoogleImageLinksDetails;
 
 import java.util.ArrayList;
 
-public class GoogleBook {
+// Google API - volumeInfo object details
+public class GoogleVolumeInfoDetails {
+
     private String title;
     private ArrayList<String> authors;
     private String publishedDate;
     private String description;
-    private String smallThumbnail;
-    private String thumbnail;
+    private GoogleImageLinksDetails imageLinks;
+    private String infoLink;
 
-    public GoogleBook(String title, ArrayList<String> authors, String publishedDate, String description, String smallThumbnail, String thumbnail) {
-        this.title = title;
-        this.authors = authors;
-        this.publishedDate = publishedDate;
-        this.description = description;
-        this.smallThumbnail = smallThumbnail;
-        this.thumbnail = thumbnail;
-    }
-
-    public GoogleBook() {
+    public GoogleVolumeInfoDetails() {
     }
 
     public String getTitle() {
@@ -56,31 +49,31 @@ public class GoogleBook {
         this.description = description;
     }
 
-    public String getSmallThumbnail() {
-        return smallThumbnail;
+    public GoogleImageLinksDetails getImageLinks() {
+        return imageLinks;
     }
 
-    public void setSmallThumbnail(String smallThumbnail) {
-        this.smallThumbnail = smallThumbnail;
+    public void setImageLinks(GoogleImageLinksDetails imageLinks) {
+        this.imageLinks = imageLinks;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public String getInfoLink() {
+        return infoLink;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setInfoLink(String infoLink) {
+        this.infoLink = infoLink;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "GoogleVolumeInfoDetails{" +
                 "title='" + title + '\'' +
                 ", authors=" + authors +
                 ", publishedDate='" + publishedDate + '\'' +
                 ", description='" + description + '\'' +
-                ", smallThumbnail='" + smallThumbnail + '\'' +
-                ", thumbnail='" + thumbnail + '\'' +
+                ", imageLinks=" + imageLinks +
+                ", infoLink='" + infoLink + '\'' +
                 '}';
     }
 }

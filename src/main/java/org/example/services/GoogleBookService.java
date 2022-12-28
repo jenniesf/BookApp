@@ -1,6 +1,6 @@
 package org.example.services;
 
-import org.example.GoogleBook;
+import org.example.thirdpartyapi.GoogleBook;
 
 import java.util.ArrayList;
 

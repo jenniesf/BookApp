@@ -1,6 +1,7 @@
-package org.example;
+package org.example.thirdpartyapi;
 
 import com.google.gson.Gson;
+import org.example.Transcript;
 
 import java.net.HttpURLConnection;
 import java.net.URI;

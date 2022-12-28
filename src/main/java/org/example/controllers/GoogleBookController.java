@@ -1,6 +1,6 @@
 package org.example.controllers;
 
-import org.example.GoogleBook;
+import org.example.thirdpartyapi.GoogleBook;
 import org.example.services.GoogleBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
