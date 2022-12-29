@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="update front end pages">
+    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="refactor book description from book search api">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIGetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIGetRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672267778633</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="refactor book description from book search api">
+      <created>1672291957045</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672291957045</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +233,7 @@
     <MESSAGE value="update pages and front end styling." />
     <MESSAGE value="add additional features - show authors for book search results, add infolink to image for front and back end." />
     <MESSAGE value="update front end pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="update front end pages" />
+    <MESSAGE value="refactor book description from book search api" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor book description from book search api" />
   </component>
 </project>
