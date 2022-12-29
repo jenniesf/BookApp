@@ -94,8 +94,8 @@ public class GoogleAPIGetRequest {
             String thumbnail = null;
 
             if (String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks()).equals("null") ){
-                smallThumbnail = "none";
-                thumbnail = "none";
+                smallThumbnail = "";
+                thumbnail = "";
             } else {
                 smallThumbnail = String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks().getSmallThumbnail());
                 thumbnail = String.valueOf(transcript.getItems().get(i).getVolumeInfo().getImageLinks().getThumbnail());

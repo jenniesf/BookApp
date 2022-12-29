@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="add additional features - show authors for book search results, add infolink to image for front and back end.">
+    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="update front end pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIGetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thirdpartyapi/GoogleAPIGetRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672198376835</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update front end pages">
+      <created>1672267778633</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672267778633</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +221,7 @@
     <MESSAGE value="add functionality. update book reviews and editing book reviews." />
     <MESSAGE value="update pages and front end styling." />
     <MESSAGE value="add additional features - show authors for book search results, add infolink to image for front and back end." />
-    <option name="LAST_COMMIT_MESSAGE" value="add additional features - show authors for book search results, add infolink to image for front and back end." />
+    <MESSAGE value="update front end pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="update front end pages" />
   </component>
 </project>

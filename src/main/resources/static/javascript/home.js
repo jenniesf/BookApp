@@ -211,6 +211,11 @@ async function handleReviewAdd(bodyObj){   // runs onClick
 
 // REFACTOR / CLEAN UP GOOGLE DATA
 function escapeQuotesFromGoogleAPI(str){
+    if( str[0] == '"') {
+        str = str.replaceAll('"', '')
+    } else {
+        str = str.replace(/"/g, "'")
+    }
     str = str.replace(/"/g, "\\\"").replace(/'/g, "\\\'")
     return str
 }
@@ -227,13 +232,20 @@ const createNoteCards = (array) => {
     noteContainer.innerHTML = ''
     array.forEach( obj => {
 
+        // validate/refactor book data
         let title = String(obj.title)
         let date = String(obj.publishedDate)
         let description = String(obj.description)
         let smallImage = String(obj.smallThumbnail)
         let bigImage = String(obj.thumbnail)
-        let authors = obj.authors.join(", ")   // join authors array into string to store in DB
         let infoLink = String(obj.infoLink)
+
+        let authors = obj.authors   // authors received in array
+        if(authors) {
+            authors = obj.authors.join(", ")   // join authors array into string to store in DB
+        } else {
+           authors = ""
+        }
 
         title = escapeQuotesFromGoogleAPI(title)   // clean data, escape quotes
         description = escapeQuotesFromGoogleAPI(description)  // clean data
@@ -444,7 +456,8 @@ addReviewBtn.addEventListener("click", (e)=>{
     }
     handleReviewAdd(reviewObj);
 })
-// PUT bookshelf book review button - add review from bookshelf list
+
+// PUT/UPDATE bookshelf book review button - add review from bookshelf list
 putBookshelfReviewBtn.addEventListener("click", (e)=>{
     let reviewObj = {
         "book_id": e.target.getAttribute('data-review-id'),
@@ -462,7 +475,7 @@ putBookshelfReviewBtn.addEventListener("click", (e)=>{
 })
 
 
-// 'Close' book review modal button
+// 'Close' book review's modal button
 closeReviewBtn.addEventListener("click", (e)=>{
    document.getElementById("add-review-modal-form").reset(); // clear modal text
 })
