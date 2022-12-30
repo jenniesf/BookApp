@@ -72,6 +72,21 @@ public class BookServiceImpl implements BookService {
         return Collections.emptyList();
     }
 
+
+
+    // GET Feed/reviews (if bookshelf is false) for everyone except the requesting user id
+    @Override
+    public List<BookDto> getBooksByNonUserAndBookshelf(Long userId, boolean booleanPassed){
+        Optional<User> userOptional = userRepository.findById(userId);
+        if(userOptional.isPresent()){
+            List<Book> bookList = bookRepository.findByUserNotAndBookshelf(userOptional.get(),booleanPassed);
+            return bookList.stream().map(book -> new BookDto(book)).collect(Collectors.toList());
+        }
+        return Collections.emptyList();
+    }
+
+
+
     // GET book by book id
     @Override
     public Optional<BookDto> getBookById(Long bookId){

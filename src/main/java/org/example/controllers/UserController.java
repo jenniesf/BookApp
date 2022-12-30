@@ -22,8 +22,8 @@ public class UserController {
     // POST request to register a new user
     @PostMapping("/register")
     public List<String> addUser(@RequestBody UserDto userDto){
-        String passHash = passwordEncoder.encode(userDto.getPassword());
-        userDto.setPassword(passHash);
+        String passHash = passwordEncoder.encode(userDto.getPassword());    //encode pw coming in
+        userDto.setPassword(passHash);                                      //set encoded pw
         return userService.addUser(userDto);
     }
 

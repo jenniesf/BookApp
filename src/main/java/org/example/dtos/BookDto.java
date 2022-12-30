@@ -15,7 +15,7 @@ public class BookDto implements Serializable {
 
     private Long book_id;
     private String title;
-    private String authors;              // array or string?
+    private String authors;
     private String published;
     private String description;
     private String smallThumbnail;
@@ -56,5 +56,10 @@ public class BookDto implements Serializable {
         if(book.getInfoLink() != null){
             this.infoLink = book.getInfoLink();
         }
+
+        // set user dto data. UserDTO is passing in and out to client
+        this.userDto = new UserDto();
+        this.userDto.setFirstname(book.getUser().getFirstname());
+
     }
 }

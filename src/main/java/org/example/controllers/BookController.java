@@ -39,7 +39,7 @@ public class BookController {
         return bookService.getAllBooksByUserId(userId);
     }
 
-    // GET bookshelf if true by user id
+    // GET books on bookshelf if true by user id
     @GetMapping("/bookshelf/user/{userId}")
     public List<BookDto> getBookshelfByUser(@PathVariable Long userId){
         return bookService.getBooksByUserAndBookshelf(userId, true);
@@ -50,6 +50,18 @@ public class BookController {
     public List<BookDto> getReviewByUser(@PathVariable Long userId){
         return bookService.getBooksByUserAndBookshelf(userId, false);
     }
+
+    // GET reviews for Feed if bookshelf is false and reviews does not belong to requesting user
+    @GetMapping("/feed/user/{userId}")
+    public List<BookDto> getReviewNotByUser(@PathVariable Long userId){
+        // get List of Feed of books
+        var listOfBooks = bookService.getBooksByNonUserAndBookshelf(userId, false);
+        // System.out.println(listOfBooks);
+        // create a hashset that has the book review + the user's first name
+        // hashset key will be user id
+        return listOfBooks;
+    }
+
 
     // GET book by book id
     @GetMapping("/{bookId}")

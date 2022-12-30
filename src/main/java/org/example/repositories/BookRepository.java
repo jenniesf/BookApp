@@ -17,4 +17,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByUserEquals(User user);
 
     List<Book> findByUserAndBookshelf(User user, boolean bookshelf);
+
+    List<Book> findByUserNotAndBookshelf(User user, boolean bookshelf);
+
 }

@@ -259,7 +259,7 @@ const createNoteCards = (array) => {
         noteCard.innerHTML = `
             <div class="card h-100">
 
-                <a class="text-decoration-none" href="${infoLink}">
+                <a class="text-decoration-none" target="_blank" href="${infoLink}">
                     <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
                 </a>
 
@@ -355,7 +355,7 @@ const createBookshelfCards = (array) => {
         bookshelfCard.innerHTML = `
             <div class="card h-100">
 
-                <a class="text-decoration-none" href="${obj.infoLink}">
+                <a class="text-decoration-none" target="_blank" href="${obj.infoLink}">
                     <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
                 </a>
 
@@ -402,7 +402,7 @@ const createReviewCards = (array) => {
         reviewCard.innerHTML = `
             <div class="card h-100">
 
-                <a class="text-decoration-none" href="${obj.infoLink}">
+                <a class="text-decoration-none" target="_blank" href="${obj.infoLink}">
                     <img src="${obj.smallThumbnail}" class="card-img-top mx-auto d-block pt-2" alt="book cover">
                 </a>
 
