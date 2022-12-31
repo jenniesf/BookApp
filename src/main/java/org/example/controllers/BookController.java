@@ -33,7 +33,7 @@ public class BookController {
         bookService.updateBookById(bookDto);
     }
 
-    // GET all books by user id
+    // GET all books by user id - both bookshelf and reviews
     @GetMapping("/user/{userId}")
     public List<BookDto> getBooksByUser(@PathVariable Long userId){
         return bookService.getAllBooksByUserId(userId);
@@ -51,7 +51,7 @@ public class BookController {
         return bookService.getBooksByUserAndBookshelf(userId, false);
     }
 
-    // GET reviews for Feed if bookshelf is false and reviews does not belong to requesting user
+    // GET reviews for Feed if bookshelf is false and reviews do not belong to requesting user
     @GetMapping("/feed/user/{userId}")
     public List<BookDto> getReviewNotByUser(@PathVariable Long userId){
         // get List of Feed of books

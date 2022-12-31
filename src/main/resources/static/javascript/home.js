@@ -70,7 +70,7 @@ async function bookSearch(obj) {
     }
 }
 
-// 4. ADD GOOGLE SEARCHED BOOK TO BOOKSHELF DATABASE
+//   4. ADD GOOGLE SEARCHED BOOK TO BOOKSHELF DATABASE
 async function handleAddToBookshelf(bookArrData){
     let bodyObj = {
         "title": bookArrData[0],
@@ -94,7 +94,7 @@ async function handleAddToBookshelf(bookArrData){
     }
 }
 
-// 5. ADD GOOGLE BOOK (INITIAL) REVIEW TO DATABASE
+//   5. ADD GOOGLE BOOK (INITIAL) REVIEW TO DATABASE
 async function handleReviewModal(bookArrData){
     // show modal; add initial book review button;
         // hide edit review/add to existing bookshelf book button
@@ -114,10 +114,7 @@ async function handleReviewModal(bookArrData){
 }
 
 
-
-
-
-// GET USER'S BOOKSHELF (IF TRUE) ASSOCIATED WITH USERID ON PAGE LOAD
+//   6. GET USER'S BOOKSHELF (IF TRUE) ASSOCIATED WITH USERID ON PAGE LOAD
 async function getBookshelf(userId) {
     await fetch(`${bookUrl}bookshelf/user/${userId}`, {
         method: "GET",
@@ -129,7 +126,7 @@ async function getBookshelf(userId) {
 }
 
 
-// GET USER'S REVIEWS (IF BOOKSHELF FALSE) ASSOCIATED WITH USERID ON PAGE LOAD
+//   7. GET USER'S REVIEWS (IF BOOKSHELF FALSE) ASSOCIATED WITH USERID ON PAGE LOAD
 async function getReviews(userId) {
     await fetch(`${bookUrl}review/user/${userId}`, {
         method: "GET",
@@ -141,9 +138,7 @@ async function getReviews(userId) {
 }
 
 
-
-
-// GET and update a bookshelf book with a review which will involve
+//   8.  GET and UPDATE/PUT a bookshelf book with a review which will involve
     // a separate GET request for that book and then a PUT for that book
 async function getBookById(bookId){
     // hide modal 'add initial book review' button;
@@ -177,7 +172,7 @@ async function handleReviewPut(bodyObj){   // runs onClick
 }
 
 
-// DELETE BOOK FROM BOOKSHELF OR REVIEW WITH BOOK ID
+//   9. DELETE BOOK FROM BOOKSHELF OR REVIEW WITH BOOK ID
 async function handleBookDelete(bookId){
     await fetch(bookUrl + bookId, {
         method: "DELETE",
@@ -190,6 +185,7 @@ async function handleBookDelete(bookId){
 }
 
 
+//   10. POST REVIEW TO DATABASE
 async function handleReviewAdd(bodyObj){   // runs onClick
     // save Review to database
     const response = await fetch(`${bookUrl}user/${userId}`, {
@@ -210,6 +206,7 @@ async function handleReviewAdd(bodyObj){   // runs onClick
 // HELPER FUNCTIONS
 
 // REFACTOR / CLEAN UP GOOGLE DATA
+    // remove quotes from data; otherwise there will be issues saving into database
 function escapeQuotesFromGoogleAPI(str){
     if( str[0] == '"') {
         str = str.replaceAll('"', '')
@@ -220,12 +217,14 @@ function escapeQuotesFromGoogleAPI(str){
     return str
 }
 
+    // shorten description on page. will utilize a collaspe feature
 function shortenDescription(str){
     let result = [];
     result.push(str.slice(0,120))
     result.push(str.slice(120))
     return result
 }
+
 
 // CARDS TO SHOW GOOGLE SEARCH RESULT
 const createNoteCards = (array) => {

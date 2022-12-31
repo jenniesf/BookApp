@@ -14,7 +14,7 @@
 
     <body>
 
-
+        <!--   NAV BAR  -->
         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand px-4" href="#">Bookworm</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,19 +35,39 @@
         </nav>
 
 
+        <!--   SHOW USERNAME ON PAGE -->
         <br><br><br>
         <h2 class="text-center"><span id="userName"></span></h2>
+        <br><br>
 
         <!--   SHOW FEED -->
-        <div id="myReviews">
-            <br><br>
-        </div>
-
-        <h5 id="reviewResultEmptyText" style="display:none;" class="px-4"></h5>
+        <h5 id="feedResultEmptyText" style="display:none;" class="px-4"></h5>
         <br>
-        <div id="review-container" class="row row-cols-1 row-cols-md-5 px-4"></div>
+        <div id="feed-container" class="row row-cols-1 row-cols-md-5 px-4"></div>
 
         <br><br><br>
+
+        <!-- Modal -->
+        <form id="modal-form">
+            <div class="modal fade" id="feedModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel"></h5>
+                        </div>
+                        <div class="modal-body" id="">
+                            <div class="container-fluid" id="requestedUserReviewModal">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="close-modal-button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
 
 
 

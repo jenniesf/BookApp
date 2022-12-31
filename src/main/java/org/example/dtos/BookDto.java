@@ -60,6 +60,7 @@ public class BookDto implements Serializable {
         // set user dto data. UserDTO is passing in and out to client
         this.userDto = new UserDto();
         this.userDto.setFirstname(book.getUser().getFirstname());
+        this.userDto.setUser_id((book.getUser().getUser_id()));
 
     }
 }

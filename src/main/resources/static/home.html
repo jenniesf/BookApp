@@ -15,6 +15,7 @@
     <body>
 
 
+        <!-- NAV BAR -->
         <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand px-4" href="#">Bookworm</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,24 +36,13 @@
         </nav>
 
 
-<!--        <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>-->
-
+        <!-- WELCOME USER NAME -->
         <br><br><br><br><br><br><br>
         <h2 class="text-center">Welcome <span id="userName"></span></h2>
         <br><br><br><br>
 
-        <!--    GOOGLE SEARCH FORM-->
-<!--        <form action="" id="google-form">-->
-<!--            <div class="form-group">-->
-<!--                <input type="text" id="search-input" placeholder="Search book">-->
-<!--            </div>-->
-<!--            <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>-->
-<!--        </form>-->
 
-<!--        <div class="input-group">-->
-<!--            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />-->
-<!--            <button type="button" class="btn btn-outline-primary">search</button>-->
-<!--        </div>-->
+        <!-- SEARCH BAR -->
         <div id="searchBar" >
             <br>
             <br>
@@ -81,29 +71,6 @@
 
         <br><br><br><br><br><br><br><br>
 
-        <!-- TEST BOOK FORM -->
-<!--        <div class="container" id="home-container">-->
-<!--            <div class="book-form-container">-->
-
-<!--                <form action="" id="book-form">-->
-<!--                    <div class="form-group">-->
-<!--                        <input class="form-control" type="text" id="title-input" placeholder="Title">-->
-<!--                        <input class="form-control" type="text" id="author-input" placeholder="Author">-->
-<!--                        <input class="form-control" type="text" id="published-input" placeholder="Published date">-->
-<!--                        <input class="form-control" type="text" id="description-input" placeholder="description">-->
-<!--                        <input class="form-control" type="text" id="smallThumbnail-input" placeholder="smallThumbnail">-->
-<!--                        <input class="form-control" type="text" id="thumbnail-input" placeholder="thumbnail">-->
-<!--                        <input class="form-control" type="text" id="bookshelf-input" placeholder="bookshelf boolean">-->
-<!--                        <input class="form-control" type="text" id="review-input" placeholder="review">-->
-<!--                        <textarea class="form-control" name="" id="book-input" cols="30" rows="5" placeholder="Add your book..."></textarea>-->
-<!--                    </div>-->
-<!--                    <button id="submit-book-button" type="submit" class="btn btn-primary mt-1">Submit</button>-->
-<!--                </form>-->
-
-<!--                &lt;!&ndash; SHOW BOOKS ON SCREEN&ndash;&gt;-->
-<!--                <div id="book-container" class="container-fluid"></div>-->
-<!--            </div>-->
-<!--        </div>-->
 
         <!--   SHOW USER'S BOOKSHELF -->
         <div id="myBookshelf">
@@ -116,6 +83,7 @@
         <div id="bookshelf-container" class="row row-cols-1 row-cols-md-5 px-4"></div>
 
         <br><br><br><br>
+
 
         <!--   SHOW USER'S REVIEWS -->
         <div id="myReviews">
@@ -130,8 +98,7 @@
         <br><br><br>
 
 
-
-        <!-- Modal - ADD NEW/INITIAL REVIEW TO DATABASE -->
+        <!-- Modal - TO ADD OR EDIT REVIEW IN DATABASE -->
         <form id="add-review-modal-form">
             <div class="modal fade" id="add-review-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="add-review-modal-title" aria-hidden="true">
                 <div class="modal-dialog">
@@ -167,3 +134,42 @@
 
     </body>
 </html>
+
+
+<!--    GOOGLE SEARCH FORM-->
+<!--        <form action="" id="google-form">-->
+<!--            <div class="form-group">-->
+<!--                <input type="text" id="search-input" placeholder="Search book">-->
+<!--            </div>-->
+<!--            <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>-->
+<!--        </form>-->
+
+<!--        <div class="input-group">-->
+<!--            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />-->
+<!--            <button type="button" class="btn btn-outline-primary">search</button>-->
+<!--        </div>-->
+
+
+<!-- TEST BOOK FORM -->
+<!--        <div class="container" id="home-container">-->
+<!--            <div class="book-form-container">-->
+
+<!--                <form action="" id="book-form">-->
+<!--                    <div class="form-group">-->
+<!--                        <input class="form-control" type="text" id="title-input" placeholder="Title">-->
+<!--                        <input class="form-control" type="text" id="author-input" placeholder="Author">-->
+<!--                        <input class="form-control" type="text" id="published-input" placeholder="Published date">-->
+<!--                        <input class="form-control" type="text" id="description-input" placeholder="description">-->
+<!--                        <input class="form-control" type="text" id="smallThumbnail-input" placeholder="smallThumbnail">-->
+<!--                        <input class="form-control" type="text" id="thumbnail-input" placeholder="thumbnail">-->
+<!--                        <input class="form-control" type="text" id="bookshelf-input" placeholder="bookshelf boolean">-->
+<!--                        <input class="form-control" type="text" id="review-input" placeholder="review">-->
+<!--                        <textarea class="form-control" name="" id="book-input" cols="30" rows="5" placeholder="Add your book..."></textarea>-->
+<!--                    </div>-->
+<!--                    <button id="submit-book-button" type="submit" class="btn btn-primary mt-1">Submit</button>-->
+<!--                </form>-->
+
+<!--                &lt;!&ndash; SHOW BOOKS ON SCREEN&ndash;&gt;-->
+<!--                <div id="book-container" class="container-fluid"></div>-->
+<!--            </div>-->
+<!--        </div>-->
