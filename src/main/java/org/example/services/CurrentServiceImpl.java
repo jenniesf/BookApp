@@ -54,8 +54,12 @@ public class CurrentServiceImpl implements CurrentService {
     public void updateCurrentById(CurrentDto currentDto){
         Optional<Current> currentOptional = currentRepository.findById(currentDto.getCurrent_id());
         currentOptional.ifPresent( current -> {
-            current.setCurrentPage(currentDto.getCurrentPage());
-            current.setTotalPages(current.getTotalPages());
+            if(currentDto.getCurrentPage() != null ) {
+                current.setCurrentPage(currentDto.getCurrentPage());
+            }
+            if(currentDto.getTotalPages() != null ) {
+                current.setTotalPages(currentDto.getTotalPages());
+            }
             currentRepository.saveAndFlush(current);
         });
     }
@@ -69,6 +73,16 @@ public class CurrentServiceImpl implements CurrentService {
             return currentList.stream().map(current -> new CurrentDto(current)).collect(Collectors.toList());
         }
         return Collections.emptyList();
+    }
+
+    // GET current by current id
+    @Override
+    public Optional<CurrentDto> getCurrentById(Long currentId){
+        Optional<Current> currentOptional = currentRepository.findById(currentId);
+        if(currentOptional.isPresent()){
+            return Optional.of(new CurrentDto(currentOptional.get()));
+        }
+        return Optional.empty();
     }
 
 }

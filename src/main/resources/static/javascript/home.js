@@ -32,14 +32,7 @@ const headers = {
 // Backend link to POST Google API url
 const baseUrl = 'http://localhost:8080/api/v1/bookapi/'    // Google search book
 const bookUrl = 'http://localhost:8080/api/v1/books/'
-
-
-
-
-
-
-
-
+const currentUrl = 'http://localhost:8080/api/v1/current/'        // current list
 
 
 //   1. HANDLE LOGOUT
@@ -210,6 +203,23 @@ async function handleReviewAdd(bodyObj){   // runs onClick
     }
 }
 
+//   11. POST A BOOK FROM THE BOOKSHELF TO THE CURRENT BOOK LIST - set initial pages to 0
+async function postCurrentBook(bookId){
+    let bodyObj = {
+        "currentPage": 0,
+        "totalPages": 0
+    }
+    const response = await fetch(`${currentUrl}user/${userId}/${bookId}`, {
+        method: "POST",
+        body: JSON.stringify(bodyObj),
+        headers: headers
+    })
+        .catch(err => console.error(err.message))
+    if (response.status == 200) {
+          console.log("book added to current list")
+    }
+}
+
 
 
 // HELPER FUNCTIONS
@@ -315,7 +325,7 @@ const createNoteCards = (array) => {
 const populateAddReviewModal = (obj) =>{
     reviewBody.innerText = ''
 
-    // check if obj has book_id (aka already in DB to edit vs new book object, and set attributes)
+    // check if obj has book_id (aka already in DB to edit vs new book object, and set attributes) - there are two save btns
     if (obj.book_id != null) {
         putBookshelfReviewBtn.setAttribute('data-review-id', obj.book_id)
         putBookshelfReviewBtn.setAttribute('data-review-title', obj.title)
@@ -372,13 +382,21 @@ const createBookshelfCards = (array) => {
                 </div>
 
                 <div class="card-footer text-center">
-                    <button class="btn btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
-                        Delete
+
+                    <button type="button" class="btn btn-labeled btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
+                         <span class="btn-label"><i class="fa fa-trash"></i></span>
                     </button>
+
+                    <button type="button" class="btn btn-labeled btn-warning btn-sm" onclick="postCurrentBook(${obj.book_id})">
+                        <span class="btn-label"><i class="fa fa-bookmark"></i></span>
+                     </button>
+
                     <button class="btn btn-secondary btn-sm" onclick="getBookById(${obj.book_id})"
                     type="button" data-bs-toggle="modal" data-bs-target="#add-review-modal">
                         Add review
                     </button>
+
+
                 </div>
 
             </div>
@@ -420,9 +438,11 @@ const createReviewCards = (array) => {
                 </div>
 
                 <div class="card-footer text-center">
-                    <button class="btn btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
-                        Delete
+
+                    <button type="button" class="btn btn-labeled btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
+                         <span class="btn-label"><i class="fa fa-trash"></i></span>
                     </button>
+
                     <button class="btn btn-secondary btn-sm" onclick="getBookById(${obj.book_id})"
                     type="button" data-bs-toggle="modal" data-bs-target="#add-review-modal">
                         Edit review
@@ -533,3 +553,15 @@ closeReviewBtn.addEventListener("click", (e)=>{
 //    }
 //}
 // **********
+
+
+// OLD BUTTONS - before icons
+//<button class="btn btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
+//    Delete
+//</button>
+//<button class="btn btn-outline-danger btn-sm" onclick="handleBookDelete(${obj.book_id})">
+//    Delete
+//</button>
+//<button class="btn btn-primary btn-sm" onclick="postCurrentBook(${obj.book_id})">
+//    Current
+//</button>

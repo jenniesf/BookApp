@@ -42,6 +42,9 @@ public class CurrentDto implements Serializable {
         this.bookDto = new BookDto();
         this.bookDto.setTitle(current.getBook().getTitle());
         this.bookDto.setBook_id(current.getBook().getBook_id());
+        this.bookDto.setInfoLink(current.getBook().getInfoLink());
+        this.bookDto.setSmallThumbnail(current.getBook().getSmallThumbnail());
+        this.bookDto.setBookshelf(current.getBook().isBookshelf());
 
     }
 }

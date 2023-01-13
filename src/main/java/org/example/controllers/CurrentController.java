@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/current")
@@ -40,4 +41,9 @@ public class CurrentController {
         return currentService.getAllCurrentByUserId(userId);
     }
 
+    // GET current by current id
+    @GetMapping("/{currentId}")
+    public Optional<CurrentDto> getCurrentById(@PathVariable Long currentId){
+        return currentService.getCurrentById(currentId);
+    }
 }
