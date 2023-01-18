@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="Add current book feature">
+    <list default="true" id="a5855cf9-33c3-4d50-be6d-b8e3fa2b6da0" name="Changes" comment="front end to include bookshelf/current book feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/CurrentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/CurrentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dtos/CurrentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dtos/CurrentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/CurrentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/CurrentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/CurrentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/CurrentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/current.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/current.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/current.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/current.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/javascript/home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673500793932</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="front end to include bookshelf/current book feature">
+      <created>1673639556917</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673639556917</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,6 +273,7 @@
     <MESSAGE value="add feed feature" />
     <MESSAGE value="add modal to show user's reviews on feed page" />
     <MESSAGE value="Add current book feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add current book feature" />
+    <MESSAGE value="front end to include bookshelf/current book feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="front end to include bookshelf/current book feature" />
   </component>
 </project>
