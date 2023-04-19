@@ -24,6 +24,11 @@ Additional features include:
 - Hashing passwords
 - Caching user ids
 
+# Optimization
+There are many additional features I plan to include, such as the following items:
+- Add friends list for users
+- Toggle reviews between public and private view
+- Search reviews by book title
 
 ### Landing Page
 <img width="1207" alt="idx" src="https://user-images.githubusercontent.com/99220339/219877384-76493a05-4700-4b9d-bbf0-eeda1d1cb337.png">
